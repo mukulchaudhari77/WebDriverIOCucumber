@@ -3,7 +3,8 @@ Feature: This is for Registration and validation of the way2automation page
     Scenario: Registration using Personal Information
         Given This is the Home page of way2automation
         When I Click on Registration
-        Then I get navigated on another page and see the Heading Text as "DUMMY REGISTRATION FORM"
+        When I navigate to another page
+        Then I see the Heading Text as "DUMMY REGISTRATION FORM"
         When I Enter the Personal information in all fields as
         When I click on Submit Button
         Then I see popup text as "This is just a dummy form, you just clicked SUBMIT BUTTON"
@@ -11,6 +12,7 @@ Feature: This is for Registration and validation of the way2automation page
         Then I should navigate to another page and see "Practice Your Automation Scripts Here..."
         Then I scroll down and see test as "Registration"
         When I click on the Registration tab
+        When I  get navigated to another page
         Then I will navigate to another page and see heading subtitle "Registration Form"
         When I fill all data fields in the page as And click submit
         Then the page gets reloaded and other form page gets displayed Heading text as "Registration"
@@ -27,5 +29,8 @@ Feature: This is for Registration and validation of the way2automation page
 
         When I Click on Frame and windows
         Then I see the Heading as "Frames And Windows"
-        When I click on New Browser Tab in open new window
-        Then I should get navigated to new Tab and see text "New Browser Tab"
+        When I click on Open Separate New Window
+        # When I click on Open New Separate Window
+        # Then I should see the text as "Open New Seprate Window"
+        # When I get navigated to new Tab
+        # Then I see text "New Browser Tab"

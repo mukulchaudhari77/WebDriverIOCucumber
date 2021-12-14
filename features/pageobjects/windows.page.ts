@@ -1,8 +1,9 @@
 class Windows {
     get clickOnFrameAndWindows() { return $('//a[text()="Frames and Windows"]') }
     get frameAndWindowsHeading() { return $('//h1[text()="Frames And Windows "]') }
-    get clickOnNewBrowserTab() { return $('//a[text()="New Browser Tab"]') }
-    get NewBrowserTab() { return $('//a[text()="New Browser Tab"]') }
+    get clickOnNewWindow() { return $('//a[text()="Open Seprate New Window"]') }
+    get openNewWindow(){ return $('//a[text()="Open New Seprate Window"]') }
+    // get NewBrowserTab() { return $('//a[text()]') }
 
 }
 export default new Windows()
