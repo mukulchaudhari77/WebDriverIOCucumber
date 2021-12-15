@@ -9,7 +9,6 @@ Feature: This is for Registration and validation of the way2automation page
         When I click on Submit Button
         Then I see popup text as "This is just a dummy form, you just clicked SUBMIT BUTTON"
 
-
     Scenario: Registartion in New Window
         When I Click on Enter The Testing Website
         Then I should navigate to another page and see "Practice Your Automation Scripts Here..."
@@ -19,7 +18,6 @@ Feature: This is for Registration and validation of the way2automation page
         Then I will navigate to another page and see heading subtitle "Registration Form"
         When I fill all data fields in the page as And click submit
         Then the page gets reloaded and other form page gets displayed Heading text as "Registration"
-
 
     Scenario: Select option in Dropdown
         When I hover on Dyanmic Elements and click on dropdown option
@@ -33,4 +31,4 @@ Feature: This is for Registration and validation of the way2automation page
         When I click on Open Separate New Window
         When I click on Open New Separate Window
         When I get navigated to new Tab
-        Then I see text "New Browser Tab"
+        Then I see text "Open New Seprate Window"

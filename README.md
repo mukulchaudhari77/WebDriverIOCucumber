@@ -6,9 +6,10 @@ Hello friends, In this project I am using WebdriverIO in which I have used cucum
 
 ---
 ### Pre-requisite :
-![visual Studio code](https://code.visualstudio.com/Download)
+[visual Studio code](https://code.visualstudio.com/Download)
  
 ---
+
 ### Getting started With Github:
 
 ```
@@ -16,9 +17,21 @@ Hello friends, In this project I am using WebdriverIO in which I have used cucum
 2. Navigate to WebDriverIOCucumber
 ```
 ---
-### Commands
+
+### Commands to run in cmd
 
 npm install <br>
 npm run test <br>
+npm report
 
 ---
+
+### Key Features
+- Cucumber BDD framework
+- Parallel execution
+- Allure and Spec report
+- Page Object Design pattern
+- Json file as source of test data
+
+---
+

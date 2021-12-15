@@ -5,10 +5,10 @@ import registerPage from "../pageobjects/register.page";
 import dropDownPage from "../pageobjects/dropDown.page";
 import windowsPage from "../pageobjects/windows.page";
 import faker from "faker";
+import homepagePage from "../pageobjects/homepage.page";
 
 Given(/^This is the Home page of way2automation$/, async () => {
-    await dummyRegisterationPage.homePageLink()
-    await browser.maximizeWindow()
+    await homepagePage.openWebsite()
 });
 When(/^I Click on Registration$/, async () => {
     await dummyRegisterationPage.clickOnRegistration.click()
@@ -54,7 +54,6 @@ When(/^I  get navigated to another page$/, async () => {
 Then(/^I will navigate to another page and see heading subtitle \"([^\"]*)\"$/, async (registrationform) => {
     await expect(registerPage.registrationFormHeading).toHaveText(registrationform)
 });
-
 When(/^I fill all data fields in the page as And click submit$/, async () => {
     await registerPage.firstName.setValue(faker.name.firstName())
     await registerPage.lastName.setValue(faker.name.lastName())
@@ -72,13 +71,12 @@ When(/^I fill all data fields in the page as And click submit$/, async () => {
 Then(/^the page gets reloaded and other form page gets displayed Heading text as \"([^\"]*)\"$/, async (registration) => {
     await expect(registerPage.registrationHeading).toHaveText(registration)
 });
-
-
 When(/^I hover on Dyanmic Elements and click on dropdown option$/, async () => {
     await dropDownPage.hover.scrollIntoView()
     await dropDownPage.hover.moveTo()
-    await dropDownPage.clickDropdown.waitForClickable()
-    await dropDownPage.clickDropdown.click()
+    await browser.pause(3000)
+    await dropDownPage.menuDropdown.waitForClickable()
+    await dropDownPage.menuDropdown.click()
 });
 Then(/^I see the Heading Text \"([^\"]*)\"$/, async (dropdown) => {
     await expect(dropDownPage.dropdownHeading).toHaveText(dropdown)
@@ -86,18 +84,11 @@ Then(/^I see the Heading Text \"([^\"]*)\"$/, async (dropdown) => {
 When(/^I click on Enter country$/, async () => {
     await dropDownPage.clickOnEnterCountry.click()
 });
-
-
 When(/^I select country India option from dropdown India is selected$/, async () => {
-    await browser.switchToFrame(0)
-    await dropDownPage.clickOnPleaseenter.click()
-    await dropDownPage.clickOnPleaseenter.waitForClickable()
-    await dropDownPage.selectOption.click()
+    await browser.switchToFrame(await dropDownPage.iframe)
+    await dropDownPage.countryDropDown.selectByVisibleText("India")
+    await browser.switchToParentFrame()
 });
-
-
-
-
 When(/^I Click on Frame and windows$/, async () => {
     await windowsPage.clickOnFrameAndWindows.click()
 });
@@ -107,11 +98,10 @@ Then(/^I see the Heading as \"([^\"]*)\"$/, async (framesandwindows) => {
 When(/^I click on Open Separate New Window$/, async () => {
     await windowsPage.clickOnNewWindow.click()
 });
-
-
 When(/^I click on Open New Separate Window$/, async () => {
-    await browser.switchToFrame(0)
+    await browser.switchToFrame(await windowsPage.iframeElement)
     await windowsPage.openNewWindow.click()
+    await browser.switchToParentFrame()
 });
 When(/^I get navigated to new Tab$/, async () => {
     const newtab = await browser.getWindowHandles()
