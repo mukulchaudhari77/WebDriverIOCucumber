@@ -1,20 +1,3 @@
 {
-    "DummyRegistrationDetails": {
-        "Name": "Manish Malhotra",
-        "phone": "9885522662",
-        "email": "tonystark@gmail.com",
-        "city": "Mumbai",
-        "username": "tonystark",
-        "password": "tonystark@98"
-    },
-    "registrationDetails": {
-        "FirstName": "Manohar",
-        "LastName": "Joshi",
-        "PhoneNumber": "9885522662",
-        "Email": "tonystark@gmail.com",
-        "Username": "tonyRocks",
-        "Password": "luckyboy!33",
-        "ConfirmPassword": "luckyboy!33",
-        "AboutYoutself": "Only my Name is Enough"
-    }
+    "AboutYoutself": "Only my Name is Enough"
 }
