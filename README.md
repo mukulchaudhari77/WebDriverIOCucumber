@@ -36,4 +36,4 @@ npm report
 ---
 ### Allure Report
 
- ![](image/allure%20report%20screenshot.png)
+ ![](image/allureReportScreenshot.png)
