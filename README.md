@@ -34,4 +34,6 @@ npm report
 - Json file as source of test data
 
 ---
+### Allure Report
 
+ ![](image/allure%20report%20screenshot.png)
