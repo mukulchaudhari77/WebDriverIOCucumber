@@ -14,8 +14,8 @@ Feature: This is for Registration and validation of the way2automation page
         Then I should navigate to another page and see "Practice Your Automation Scripts Here..."
         Then I scroll down and see test as "Registration"
         When I click on the Registration tab
-        When I  get navigated to another page
-        Then I will navigate to another page and see heading subtitle "Registration Form"
+        When I get navigated to another page
+        Then I see heading subtitle "Registration Form"
         When I fill all data fields in the page as And click submit
         Then the page gets reloaded and other form page gets displayed Heading text as "Registration"
 

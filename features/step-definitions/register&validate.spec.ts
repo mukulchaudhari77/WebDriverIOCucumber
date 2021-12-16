@@ -47,11 +47,11 @@ Then(/^I scroll down and see test as \"([^\"]*)\"$/, async (registration) => {
 When(/^I click on the Registration tab$/, async () => {
     await registerPage.clickRegistrationTab.click()
 });
-When(/^I  get navigated to another page$/, async () => {
+When(/^I get navigated to another page$/, async () => {
     const newtab = await browser.getWindowHandles()
     await browser.switchToWindow(newtab[2])
 });
-Then(/^I will navigate to another page and see heading subtitle \"([^\"]*)\"$/, async (registrationform) => {
+Then(/^I see heading subtitle \"([^\"]*)\"$/, async (registrationform) => {
     await expect(registerPage.registrationFormHeading).toHaveText(registrationform)
 });
 When(/^I fill all data fields in the page as And click submit$/, async () => {
@@ -61,6 +61,11 @@ When(/^I fill all data fields in the page as And click submit$/, async () => {
     await registerPage.hobby.click()
     await registerPage.phoneNumber.setValue(faker.phone.phoneNumber())
     await registerPage.eMail.setValue(faker.internet.email())
+    const path = require('path');
+    const filePath = path.join(__dirname, '../image/allureReportScreenshot.png');
+    const remoteFilePath = browser.uploadFile(filePath);
+    await browser.pause(2000)
+    await registerPage.fileUpload.setValue(await remoteFilePath);
     await registerPage.aboutYourself.setValue(registrationDetails.AboutYoutself)
     await registerPage.username.setValue(faker.internet.userName())
     let password = faker.internet.password()
