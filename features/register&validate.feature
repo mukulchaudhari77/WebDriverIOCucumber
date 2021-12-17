@@ -25,6 +25,12 @@ Feature: This is for Registration and validation of the way2automation page
         When I click on Enter country
         When I select country India option from dropdown India is selected
 
+    Scenario: handle the alert prompt
+        When I click on alert
+        Then I will see the "Alert"
+        When I Click the button to display an alert box:
+        Then The alert header contains "I am an alert box!"
+
     Scenario: Handle the new window
         When I Click on Frame and windows
         Then I see the Heading as "Frames And Windows"
