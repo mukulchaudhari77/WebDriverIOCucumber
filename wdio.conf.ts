@@ -188,7 +188,7 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     onPrepare: function (config, capabilities) {
-       deleteFolder('allure-results')
+        deleteFolder('allure-results')
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service

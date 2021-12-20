@@ -39,7 +39,7 @@ class DummyRegisteration {
         await this.password.setValue(password)
         report.addStep(` Set the password as : ${password}`)
     }
-    async clickSubmit() {
+    async clickOnSubmit() {
         await this.submitbutton.click()
         report.addStep(`Click Submit Button : ${await this.submitbutton.selector}`)
     }

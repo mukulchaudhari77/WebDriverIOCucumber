@@ -30,7 +30,7 @@ When(/^I Enter the Personal information in all fields as$/, async () => {
     await dummyRegisterationPage.setPassword(faker.internet.password())
 });
 When(/^I click on Submit Button$/, async () => {
-    await dummyRegisterationPage.clickSubmit()
+    await dummyRegisterationPage.clickOnSubmit()
 });
 Then(/^I see popup text as \"([^\"]*)\"$/, async (thisisjustadummyformyoujustclickedsubmitbutton) => {
     await expect(dummyRegisterationPage.subheadingText).toHaveText(thisisjustadummyformyoujustclickedsubmitbutton)
