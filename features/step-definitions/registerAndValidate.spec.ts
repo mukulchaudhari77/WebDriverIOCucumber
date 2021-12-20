@@ -45,7 +45,7 @@ Then(/^I scroll down and see test as \"([^\"]*)\"$/, async (registration) => {
     await expect(registerPage.registrationHeading).toHaveText(registration)
 });
 When(/^I click on the Registration tab$/, async () => {
-    await registerPage.clickRegisterTab()
+    await registerPage.clickOnRegisterTab()
 });
 When(/^I get navigated to another page$/, async () => {
     await registerPage.navigateToAnotherPage()
@@ -54,8 +54,7 @@ Then(/^I see heading subtitle \"([^\"]*)\"$/, async (registrationform) => {
     await expect(registerPage.registrationFormHeading).toHaveText(registrationform)
 });
 When(/^I fill all data fields in the page as And click submit$/, async () => {
-    await registerPage.setFirstName(faker.name.firstName())
-    await registerPage.setLastName(faker.name.lastName())
+    await registerPage.setName(faker.name.firstName(), faker.name.lastName())
     await registerPage.setMaritalStatus()
     await registerPage.setHobby()
     await registerPage.setPhoneNumber(faker.phone.phoneNumber())
@@ -66,7 +65,7 @@ When(/^I fill all data fields in the page as And click submit$/, async () => {
     let password = faker.internet.password()
     await registerPage.setPassword(password)
     await registerPage.setConfirmPassword(password)
-    await registerPage.clickSubmitButton()
+    await registerPage.clickOnSubmitButton()
 });
 Then(/^the page gets reloaded and other form page gets displayed Heading text as \"([^\"]*)\"$/, async (registration) => {
     await expect(registerPage.registrationHeading).toHaveText(registration)
@@ -79,22 +78,22 @@ Then(/^I see the Heading Text \"([^\"]*)\"$/, async (dropdown) => {
     await expect(dropDownPage.dropdownHeading).toHaveText(dropdown)
 });
 When(/^I click on Enter country$/, async () => {
-    await dropDownPage.clickEnterCountry()
+    await dropDownPage.clickOnEnterCountry()
 });
 When(/^I select country India option from dropdown India is selected$/, async () => {
     await browser.switchToFrame(await dropDownPage.iframe)
-    await dropDownPage.selectCountryDropdown()
+    await dropDownPage.clickOnCountryDropdown()
     await browser.switchToParentFrame()
 });
 When(/^I click on alert$/, async () => {
-    await alertPage.clickAlert()
+    await alertPage.clickOnAlert()
 });
 Then(/^I will see the \"([^\"]*)\"$/, async (alert) => {
     await expect(alertPage.alertHeading).toHaveText(alert)
 });
 When(/^I Click the button to display an alert box:$/, async () => {
     await browser.switchToFrame(await alertPage.iframe)
-    await alertPage.selectClickButton()
+    await alertPage.clickOnClickButtonToDiplayAlertBox()
     await browser.switchToParentFrame()
 });
 Then(/^The alert header contains \"([^\"]*)\"$/, async (iamanalertbox) => {
@@ -104,17 +103,17 @@ Then(/^The alert header contains \"([^\"]*)\"$/, async (iamanalertbox) => {
     await browser.acceptAlert()
 });
 When(/^I Click on Frame and windows$/, async () => {
-    await windowsPage.clickFrameAndWindows()
+    await windowsPage.clickOnFrameAndWindows()
 });
 Then(/^I see the Heading as \"([^\"]*)\"$/, async (framesandwindows) => {
     await expect(windowsPage.frameAndWindowsHeading).toHaveText(framesandwindows)
 });
 When(/^I click on Open Separate New Window$/, async () => {
-    await windowsPage.clickNewWindow()
+    await windowsPage.clickOnNewWindow()
 });
 When(/^I click on Open New Separate Window$/, async () => {
     await browser.switchToFrame(await windowsPage.iframeElement)
-    await windowsPage.clickOpenNewSeparateWindow()
+    await windowsPage.clickOnOpenNewSeparateWindow()
     await browser.switchToParentFrame()
 });
 When(/^I get navigated to new Tab$/, async () => {

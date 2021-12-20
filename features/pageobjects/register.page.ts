@@ -2,7 +2,7 @@ import report from "@wdio/allure-reporter"
 class Registration {
     get practiseAutomationHeading() { return $('//h1[text()="Practice your Automation scripts here... "]') }
     get registrationHeading() { return $('//h1[text()="Registration"]') }
-    get clickRegistrationTab() { return $('//img[@src="images/registration.jpg"]') }
+    get selectRegistrationTab() { return $('//img[@src="images/registration.jpg"]') }
     get registrationFormHeading() { return $('//h2[text()="Registration Form"]') }
     get firstName() { return $('//form[@id="register_form"]/fieldset[1]/p[1]/input') }
     get lastName() { return $('//form[@id="register_form"]/fieldset[1]/p[2]/input') }
@@ -15,21 +15,19 @@ class Registration {
     get aboutYourself() { return $('//form[@class="form_box"]/fieldset[10]/textarea') }
     get password() { return $('//form[@class="form_box"]/fieldset[11]/input') }
     get confirmPassword() { return $('//form[@class="form_box"]/fieldset[12]/input') }
-    get submitButton() { return $('//form[@id="register_form"]/fieldset[13]/input') }
+    get selectSubmitButton() { return $('//form[@id="register_form"]/fieldset[13]/input') }
     get reloadPageheading() { return $('//h1[text()="Registration"]') }
-    async clickRegisterTab() {
-        await this.clickRegistrationTab.click()
-        report.addStep(`Click Registration Tab : ${await this.clickRegistrationTab.selector}`)
+    async clickOnRegisterTab() {
+        await this.selectRegistrationTab.click()
+        report.addStep(`Click Registration Tab : ${await this.selectRegistrationTab.selector}`)
     }
     async navigateToAnotherPage() {
         const newtab = await browser.getWindowHandles()
         await browser.switchToWindow(newtab[2])
     }
-    async setFirstName(firstName: string) {
+    async setName(firstName: string, lastName: string) {
         await this.firstName.setValue(firstName)
         report.addStep(` Set the first Name as : ${firstName}`)
-    }
-    async setLastName(lastName: string) {
         await this.lastName.setValue(lastName)
         report.addStep(` Set the last Name as : ${lastName}`)
     }
@@ -71,9 +69,9 @@ class Registration {
         await this.confirmPassword.setValue(password)
         report.addStep(` Set the Confirm Password as : ${password}`)
     }
-    async clickSubmitButton() {
-        await this.submitButton.click()
-        report.addStep(`Click Submit Button : ${await this.submitButton.selector}`)
+    async clickOnSubmitButton() {
+        await this.selectSubmitButton.click()
+        report.addStep(`Click Submit Button : ${await this.selectSubmitButton.selector}`)
     }
 }
 export default new Registration()
